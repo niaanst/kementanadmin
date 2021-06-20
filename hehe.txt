@@ -1,0 +1,51 @@
+<div style="display: <?php echo $show?>;">
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+				<p> data Reservasi kunjungan </p>
+					<thead>
+						<tr>
+							<tr>
+							<th>Kode Reservasi</th>
+							<th>Tanggal</th>
+							<th>jenis pengunjung</th>
+							<th>waktu</th>
+							<th>nama pengunjung/instansi </th>
+							<th>nomor identitas</th>
+							<th>kota</th>
+							<th>negara</th>
+							<th>kebangsaan</th>
+							<th>nomortelepon</th>
+							<th>email</th>
+							<th> </th>
+						</tr>
+						</tr>
+						</tr>
+					</thead>
+					<tbody>
+						
+  <?php $ambil=$koneksi->query("SELECT * FROM kunjungan WHERE stat=2");$no=0; ?>
+        <?php while ($data = $ambil->fetch_assoc()){$no+=1; ?>
+						<tr>
+					
+							<td><?php echo $data['id_reservasi']; ?></td>
+							<td><?php echo $data['tanggal']; ?></td>
+							<td><?php echo $data['jenis']; ?></td>
+							<td><?php echo $data['waktu']; ?></td>
+							<td><?php echo $data['nama']; ?></td>
+							<td><?php echo $data['nomoridentitas']; ?></td>
+							<td><?php echo $data['kota']; ?></td>
+							<td><?php echo $data['negara']; ?></td>
+							<td><?php echo $data['kebangsaan']; ?></td>
+							<td><?php echo $data['nomortelepon']; ?></td>
+							<td><?php echo $data['email']; ?></td>
+						<td>
+								<a href= formemail.php  class="btn btn-info" >Terima</a>
+								<a href= formemail.php class="btn btn-danger" >Tolak </a>
+
+							</td>
+						</tr>
+
+						<?php } ?>
+						
+					</tbody>
